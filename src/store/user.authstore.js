@@ -89,11 +89,7 @@ export const useAuthstore = create((set) => ({
                 checkingAuth: false
             });
 
-        } catch (error) {
-
-            console.log("STATUS:", error.response?.status);
-            console.log("DATA:", error.response?.data);
-            console.log("MESSAGE:", error.message);
+        } catch (error) {;
 
             set({
                 user: null,

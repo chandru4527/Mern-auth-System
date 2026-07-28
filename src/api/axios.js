@@ -14,58 +14,34 @@ api.interceptors.response.use(
         return res;
     },
 
-
     // Error
     async (error) => {
+        const originalRequest = error.config;
 
-
-        const originalRequest =
-            error.config;
-
+        if (originalRequest.url === "/users/refreshtoken") {
+            return Promise.reject(error);
+        }
 
         if (
-
             error.response?.status === 401 &&
-
             !originalRequest._retry
-
         ) {
-
-
             originalRequest._retry =
                 true;
 
-
             try {
 
+                await api.post("/users/refreshtoken");
 
-                await api.post(
-
-                    "/users/refreshtoken"
-
-                );
-
-
-                return api(
-
-                    originalRequest
-
-                );
-
+                return api(originalRequest);
 
             } catch (refreshError) {
 
-
-                return Promise.reject(
-
-                    refreshError
-
-                );
+                return Promise.reject(refreshError);
 
             }
 
         }
-
 
         return Promise.reject(
 
