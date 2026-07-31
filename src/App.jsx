@@ -16,7 +16,6 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Protectedroute } from './routes/protectedrouter'
 import { Protectadminrouter } from './routes/protectadminrouter'
-import { Errorpage } from './components/errorpage'
 import LoadingPage from './components/LoadingPage'
 
 
@@ -67,7 +66,7 @@ export const App = () => {
 
         {/* not path */}
 
-        <Route path='*' element={<Errorpage />} />
+        <Route path='*' element={<LoadingPage/>} />
       </Routes>
 
       {/* footer */}

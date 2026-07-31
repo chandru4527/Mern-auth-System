@@ -3,8 +3,6 @@ import React from 'react'
 export const Bgvideo = () => {
   return (
     <div className= 'absolute top-0 left-0 h-full w-full overflow-hidden -z-10'>
-         {/* overlays */}
-            <div className="absolute inset-0 bg-black -z-1"></div>
 
             {/* video page */}
             <video
