@@ -80,8 +80,6 @@ export const useAuthstore = create((set) => ({
             const res = await api.get("/users/profile");
             const data = res.data;
 
-            console.log(data);
-
             set({
                 user: data.user,
                 isAuthenticated: true,
@@ -132,10 +130,8 @@ export const useAuthstore = create((set) => ({
             const formData = new FormData()
             formData.append('profileImage', file)
 
-            const res = await api.put('/users/profile-image', formData)
+            const res = await api.patch('/users/profile-image', formData)
             const data = res.data;
-
-            console.log('data', data);
 
             set((state) => ({
                 user: {
