@@ -1,7 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthstore } from "../store/user.authstore";
 import { toast } from "react-toastify";
+import LoadingPage from "../components/LoadingPage";
 
 export const Profile = () => {
     const user = useAuthstore((state) => state.user);
@@ -11,23 +11,19 @@ export const Profile = () => {
         (state) => state.updateUserProImg
     );
 
+    console.log(user);
+
     const navigate = useNavigate();
 
     if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-black">
-                <h1 className="text-white">Loading...</h1>
-            </div>
-        );
+        return  <LoadingPage/>
     }
 
-    if (!user) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-black">
-                <h1 className="text-white">No user found</h1>
-            </div>
-        );
-    }
+    // if (!user) {
+    //     return (
+    //         <LoadingPage/>
+    //     );
+    // }
 
     const handleLogout = async () => {
         await logout();
