@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 import  App  from './App';
+import "react-toastify/dist/ReactToastify.css";
 
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
