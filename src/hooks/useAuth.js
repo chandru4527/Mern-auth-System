@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { get, post } from "../api/axios";
 import { Endpoints } from "../api/apiendpoints";
 
-export const AUTH_USER_KEY = ["auth", "user"];
+export const AUTH_USER_KEY = ["auth", "user", "admin"];
 
 // use current user
 export const useCurrentUser = () => {
@@ -54,7 +54,7 @@ export const useGoogleLogin = () => {
         mutationFn: (firebaseToken) =>
             post(Endpoints.GOOGLE_LOGIN, {
                 googleToken: firebaseToken,
-                 termsAccepted: true,
+                termsAccepted: true,
             }),
         onSuccess: () => {
             queryClient.invalidateQueries({
@@ -72,6 +72,7 @@ export const useLogout = () => {
         mutationFn: () => post(Endpoints.LOGOUT),
         onSuccess: () => {
             queryClient.setQueryData(AUTH_USER_KEY, null);
+            queryClient.removeQueries({ queryKey: AUTH_USER_KEY });
         },
     });
 };

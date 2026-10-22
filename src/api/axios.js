@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Endpoints } from "./apiendpoints";
 
-const baseurl = import.meta.env.VITE_API_BASE_URL ;
+const baseurl = import.meta.env.VITE_API_BASE_URL;
 
 const api = axios.create({
     baseURL: baseurl,
@@ -48,8 +48,8 @@ api.interceptors.response.use(
     }
 );
 
-export const get = async (url, config = {}) => {
-    const { data } = await api.get(url, config);
+export const get = async (url, params = {}) => {
+    const { data } = await api.get(url, { params });
     return data;
 };
 
@@ -73,10 +73,8 @@ export const del = async (url, config = {}) => {
     return data;
 };
 
-export const fileUpload = async (url, formData, config = {}) => {
-    const { data } = await api.post(url, formData, {
-        ...config,
-    });
+export const postFormData = async (url, formData, config = {}) => {
+    const { data } = await api.post(url, formData, { ...config, });
 
     return data;
 };

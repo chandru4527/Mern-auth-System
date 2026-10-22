@@ -7,5 +7,17 @@ export const Endpoints = {
     REFRESH_TOKEN: "/auth/refresh-token",
     GET_ME: "/auth/me",
 
+    // Media
+    UPLOAD_IMAGE: "/media/upload-image",
+
+    // Admin
+    DASHBOARD_STATS: "/admin/dashboard",
+    USERS: "/admin/users",
+    
+
+
+    // User
+    UPDATE_PROFILE: "/user/profile",
+    CHANGE_PASSWORD: "/user/change-password",
 
 };
