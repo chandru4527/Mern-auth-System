@@ -17,50 +17,37 @@ import "swiper/css/effect-fade";
 
 // hooks
 import { useCurrentUser } from '../../hooks/useAuth';
+import { useActiveBanners } from '../../hooks/user/useBanners';
 
 
 const Hero = () => {
 
     const { data: user, isLoading } = useCurrentUser();
+    const { data: slides, isLoading: bannerloading } = useActiveBanners();
 
-    // slides
-    const slides = [
-        {
-            image: "https://res.cloudinary.com/dyiuqcqg2/image/upload/v1790512277/home_1_nes6hq.png",
-            badge: "WELCOME TO AUTHIFY",
-            title: "Your Security,",
-            highlight: "Our Priority.",
-            description: "Experience secure and seamless authentication with a simple, reliable way to access your account.",
-        },
-        {
-            image: "https://res.cloudinary.com/dyiuqcqg2/image/upload/v1790512276/home_2_hspwhf.png",
-            badge: "SIMPLE & SECURE",
-            title: "Your Account,",
-            highlight: "Your Control.",
-            description: "Manage your account with ease and enjoy a smooth authentication experience built around you.",
-        },
-        {
-            image: "https://res.cloudinary.com/dyiuqcqg2/image/upload/v1790512279/home_3_xzw2hg.png",
-            badge: "PROTECT YOUR IDENTITY",
-            title: "Privacy Comes",
-            highlight: "First.",
-            description: "Access your account with confidence and make security part of your everyday digital experience.",
-        },
-        {
-            image: "https://res.cloudinary.com/dyiuqcqg2/image/upload/v1790512281/home_4_xjruxz.png",
-            badge: "A BETTER EXPERIENCE",
-            title: "Simple Access,",
-            highlight: "Less Effort.",
-            description: "Enjoy a clean, user-friendly experience that makes signing in and managing your account effortless.",
-        },
-        {
-            image: "https://res.cloudinary.com/dyiuqcqg2/image/upload/v1790512283/home_5_rtwlvr.png",
-            badge: "GET STARTED TODAY",
-            title: "Your Journey",
-            highlight: "Starts Here.",
-            description: "Create your Authify account and get started with a simple and convenient authentication experience.",
-        },
-    ];
+    if (bannerloading) {
+        return (
+            <section className="w-full animate-pulse bg-green-50">
+                <div className="mx-auto flex min-h-130 max-w-7xl items-center px-5 py-14 sm:min-h-140 sm:px-8 md:min-h-150 lg:px-12">
+                    <div className="w-full max-w-xl space-y-5">
+                        <div className="h-7 w-40 rounded-full bg-green-100" />
+                        <div className="space-y-3">
+                            <div className="h-10 w-full max-w-md rounded-lg bg-gray-200" />
+                            <div className="h-10 w-4/5 max-w-sm rounded-lg bg-gray-200" />
+                        </div>
+                        <div className="space-y-2">
+                            <div className="h-4 w-full max-w-lg rounded bg-gray-200" />
+                            <div className="h-4 w-3/4 max-w-md rounded bg-gray-200" />
+                        </div>
+                        <div className="flex gap-3 pt-2">
+                            <div className="h-11 w-32 rounded-lg bg-green-200" />
+                            <div className="h-11 w-24 rounded-lg bg-gray-200" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="relative w-full overflow-hidden bg-green-50">
@@ -95,7 +82,7 @@ const Hero = () => {
                                 <div className="w-full max-w-xl">
                                     {/* Reusable Badge */}
                                     <div className="mb-5 sm:mb-6">
-                                        <Badge variant="success" size="sm" appearance="soft">
+                                        <Badge variant="success" size="sm" appearance="soft" className="uppercase">
                                             <MdVerifiedUser size={16} />
                                             {slide.badge}
                                         </Badge>

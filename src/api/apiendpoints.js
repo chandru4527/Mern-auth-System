@@ -13,11 +13,13 @@ export const Endpoints = {
     // Admin
     DASHBOARD_STATS: "/admin/dashboard",
     USERS: "/admin/users",
+    BANNERS_ADMIN:'/admin/banners',
     
 
 
     // User
     UPDATE_PROFILE: "/user/profile",
     CHANGE_PASSWORD: "/user/change-password",
+    BANNERS:"/user/banners",
 
 };

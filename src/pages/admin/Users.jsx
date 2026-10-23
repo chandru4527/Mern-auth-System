@@ -60,7 +60,10 @@ const Users = () => {
     limit,
   };
 
-  const { data, isLoading, isFetching, refetch } = useAllUsers(params);
+  const { data, isLoading, refetch, isFetching } = useAllUsers(params);
+
+  console.log(data);
+
 
   const { mutate: editUser } = useEditUser();
   const { mutate: deleteUser } = useDeleteUser();
@@ -288,6 +291,7 @@ const Users = () => {
         description="Manage, view, and monitor all registered users."
         titleIcon={MdGroup}
         onRefresh={refetch}
+        refreshLoading={isFetching}
       />
 
       <TableToolbar
@@ -301,7 +305,7 @@ const Users = () => {
           {
             key: "email",
             label: "Email",
-            type: "email",
+            type: "search",
             placeholder: "Search by email",
           },
         ]}
@@ -328,7 +332,7 @@ const Users = () => {
       <Table
         columns={columns}
         data={users}
-        loading={isLoading || isFetching}
+        loading={isLoading}
         pagination
         page={currentPage}
         pageSize={pageSize}
