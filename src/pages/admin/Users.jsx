@@ -61,9 +61,7 @@ const Users = () => {
   };
 
   const { data, isLoading, refetch, isFetching } = useAllUsers(params);
-
   console.log(data);
-
 
   const { mutate: editUser } = useEditUser();
   const { mutate: deleteUser } = useDeleteUser();
@@ -150,13 +148,13 @@ const Users = () => {
     !searchParams.has("limit");
 
   // view user
-  const handleView = (data) => {
+  const handleView = (user) => {
     openModal({
       icon: MdPerson,
       title: 'User details',
       size: "lg",
       content: (
-        <ViewUser data={data} />
+        <ViewUser user={user} />
       ),
       action: {
         variant: "theme"
@@ -166,32 +164,32 @@ const Users = () => {
   }
 
   // edit user 
-  const handleEdit = (data) => {
+  const handleEdit = (user) => {
     const formId = "edit-user-form";
 
     openModal({
       icon: MdPerson,
       title: "Edit user",
       size: "lg",
-      content: (<EditUserForm formId={formId} user={data} />),
+      content: (<EditUserForm formId={formId} user={user} />),
       formId: formId,
       action: {
-        label: "Save Changes",
+        label: "Update",
         variant: "themeDark",
-        loadingText: "Saving...",
+        loadingText: "Updating...",
       }
     })
   }
 
   // delete user
-  const handleDelete = (data) => {
+  const handleDelete = (user) => {
     openModal({
       icon: MdPerson,
       title: "Delete User",
       content: (
         <Confirmation
-          message={`Are you sure you want to delete ${data.name}? This action cannot be undone.`}
-          data={data.name}
+          message={`Are you sure you want to delete ${user.name}? This action cannot be undone.`}
+          data={user.name}
         />
       ),
       action: {
@@ -201,7 +199,7 @@ const Users = () => {
         onClick: () => {
           setActionLoading(true)
           deleteUser(
-            data?._id,
+            user?._id,
             {
               onSuccess: () => {
                 closeModal();

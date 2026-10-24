@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 
 // icons
-import { MdPerson, MdEmail, MdPhone, MdCalendarToday, MdLocationCity, } from "react-icons/md";
+import { MdPerson, MdEmail, MdPhone, MdCalendarToday, MdLocationOn, MdAlternateEmail } from "react-icons/md";
 
 // form
 import { useForm } from "react-hook-form";
@@ -25,7 +25,6 @@ import { toastify } from "../../utils/toastify";
 const EditUserForm = ({ user, formId }) => {
 
     const { closeModal, setActionLoading } = useModalStore();
-
 
     const { mutate, isPending } = useEditUser();
 
@@ -56,10 +55,7 @@ const EditUserForm = ({ user, formId }) => {
                 profileImage = await uploadImage(selectedImage);
             }
 
-            const payload = {
-                ...data,
-                profileImage,
-            };
+            const payload = { ...data, profileImage, };
 
             mutate(
                 {
@@ -111,7 +107,7 @@ const EditUserForm = ({ user, formId }) => {
                 <Input
                     label="Username"
                     placeholder="Enter your username"
-                    icon={MdPerson}
+                    icon={MdAlternateEmail}
                     iconClassName="text-purple-600"
                     inputClassName="focus:border-purple-500 focus:ring-purple-500"
                     error={errors.userName?.message}
@@ -146,10 +142,11 @@ const EditUserForm = ({ user, formId }) => {
                     error={errors.dateOfBirth?.message}
                     {...register("dateOfBirth")}
                 />
+                
                 <Input
                     label="Address"
                     placeholder="Enter your city"
-                    icon={MdLocationCity}
+                    icon={MdLocationOn}
                     iconClassName="text-cyan-600"
                     inputClassName="focus:border-cyan-500 focus:ring-cyan-500"
                     error={errors.address?.message}

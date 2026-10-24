@@ -49,9 +49,9 @@ const AdminProfile = () => {
       formId: formId,
       content: (<EditProfile user={admin} formId={formId} />),
       action: {
-        label: "Save Changes",
+        label: "Update",
         variant: "themeDark",
-        loadingText: "Saving Changes...",
+        loadingText: "Updating...",
       }
     })
   }
@@ -66,9 +66,9 @@ const AdminProfile = () => {
       size: "md",
       formId: formId,
       action: {
-        label: "Save Changes",
+        label: "Update",
         variant: "themeDark",
-        loadingText: "Saving Changes...",
+        loadingText: "Updating...",
       }
 
     });

@@ -96,7 +96,7 @@ const Banners = () => {
             formId,
             action: {
                 label: "Add Banner",
-                variant: "theme",
+                variant: "themeDark",
                 loadingText: "Adding...",
             },
         });
@@ -109,6 +109,9 @@ const Banners = () => {
             title: "Banner Details",
             content: <ViewBanner banner={banner} />,
             size: "lg",
+            action: {
+        variant: "theme"
+      }
         });
     };
 
@@ -123,10 +126,10 @@ const Banners = () => {
             size: "lg",
             formId,
             action: {
-                label: "Save Changes",
-                variant: "theme",
+                label: "Update",
+                variant: "themeDark",
                 loadingText: "Updating...",
-            },
+            }
         });
     };
 

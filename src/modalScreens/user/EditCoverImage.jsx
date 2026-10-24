@@ -47,7 +47,7 @@ const EditCoverImage = memo(({ user }) => {
                     onError: (error) => {
                         toastify.error(
                             error?.response?.data?.message ||
-                            error?.message ||  "Failed to update cover image"
+                            error?.message || "Failed to update cover image"
                         );
                     },
                     onSettled: () => {
@@ -63,7 +63,7 @@ const EditCoverImage = memo(({ user }) => {
 
     return (
         <div className="space-y-5">
-            
+
             <CoverImageUpload
                 value={user?.coverImage}
                 onChange={setSelectedImage}
@@ -85,7 +85,7 @@ const EditCoverImage = memo(({ user }) => {
                 <Button
                     type="button"
                     variant="themeDark"
-                    text={isUploading || isUpdating ? "Saving..." : "Save changes"}
+                    text={isUploading || isUpdating ? "Updating..." : "Update"}
                     icon={MdCloudUpload}
                     onClick={handleSubmit}
                     disabled={isUploading || isUpdating || !selectedImage}

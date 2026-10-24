@@ -49,9 +49,9 @@ const Profile = () => {
             formId: formId,
             content: (<EditProfile user={user} formId={formId} />),
             action: {
-                label: "Save Changes",
+                label: "Update",
                 variant: "themeDark",
-                loadingText: "Saving Changes...",
+                loadingText: "Updating...",
             }
         })
     }
@@ -116,9 +116,9 @@ const Profile = () => {
             size: "md",
             formId: formId,
             action: {
-                label: "Save Changes",
+                label: "Update",
                 variant: "themeDark",
-                loadingText: "Saving Changes...",
+                loadingText: "Updating...",
             }
 
         });

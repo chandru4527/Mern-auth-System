@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MdMessage, MdLabel, MdTitle, MdSort } from "react-icons/md";
+import { MdMessage, MdLabel, MdTitle, MdSort,MdFormatColorText } from "react-icons/md";
 
 // Components
 import Input from "../../components/forms/Input";
@@ -39,7 +39,6 @@ const BannerForm = ({ data = null, mode = "add", formId }) => {
   const { mutate: createBanner, isPending: isCreating } = useCreateBanner();
   const { mutate: updateBanner, isPending: isUpdating } = useUpdateBanner();
   const { mutateAsync: uploadImage, isPending: isUploading } = useUploadImage();
-
 
   const { register, handleSubmit, watch, control, formState: { errors }, setValue } = useForm({
     resolver: zodResolver(bannerSchema),
@@ -126,6 +125,7 @@ const BannerForm = ({ data = null, mode = "add", formId }) => {
         label="Badge"
         placeholder="Enter badge"
         icon={MdLabel}
+        iconClassName="text-purple-600"
         error={errors.badge?.message}
         {...register("badge")}
       />
@@ -134,12 +134,15 @@ const BannerForm = ({ data = null, mode = "add", formId }) => {
         label="Banner Title"
         placeholder="Enter banner title"
         icon={MdTitle}
+        iconClassName="text-blue-600"
         error={errors.title?.message}
         {...register("title")}
       />
 
       <Input
         label="Highlighted Title"
+        icon={MdFormatColorText}
+        iconClassName="text-amber-600"
         placeholder="Enter highlighted title"
         error={errors.highlight?.message}
         {...register("highlight")}
@@ -159,6 +162,7 @@ const BannerForm = ({ data = null, mode = "add", formId }) => {
         label="Display Order"
         type="number"
         icon={MdSort}
+         iconClassName="text-orange-600"
         error={errors.order?.message}
         {...register("order")}
       />

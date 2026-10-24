@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 
 // icons
-import { MdPerson, MdEmail, MdPhone, MdCalendarToday, MdLocationCity, } from "react-icons/md";
+import { MdPerson, MdEmail, MdPhone, MdCalendarToday, MdLocationOn, MdAlternateEmail } from "react-icons/md";
 
 // form
 import { useForm } from "react-hook-form";
@@ -141,7 +141,8 @@ const EditProfile = memo(({ user, formId }) => {
                 <Input
                     label="Username"
                     placeholder="Enter your username"
-                    icon={MdPerson}
+                    icon={MdAlternateEmail}
+                    iconClassName="text-pink-600"
                     error={errors.userName?.message}
                     {...register("userName")}
                 />
@@ -151,6 +152,7 @@ const EditProfile = memo(({ user, formId }) => {
                     type="email"
                     placeholder="Enter your email address"
                     icon={MdEmail}
+                    iconClassName="text-teal-600"
                     disabled={user?.uid}
                     error={errors.email?.message}
                     {...register("email")}
@@ -161,6 +163,7 @@ const EditProfile = memo(({ user, formId }) => {
                     type="tel"
                     placeholder="Enter your mobile number"
                     icon={MdPhone}
+                    iconClassName="text-green-600"
                     error={errors.mobile?.message}
                     {...register("mobile")}
                 />
@@ -168,13 +171,15 @@ const EditProfile = memo(({ user, formId }) => {
                     label="Date of Birth"
                     type="date"
                     icon={MdCalendarToday}
+                    iconClassName="text-purple-600"
                     error={errors.dateOfBirth?.message}
                     {...register("dateOfBirth")}
                 />
                 <Input
                     label="Address"
                     placeholder="Enter your city"
-                    icon={MdLocationCity}
+                    icon={MdLocationOn}
+                    iconClassName="text-amber-600"
                     error={errors.address?.message}
                     {...register("address")}
                 />

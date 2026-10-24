@@ -11,9 +11,9 @@ import Badge from "../../components/Badge";
 // utils
 import { formatDate } from '../../utils/formatters';
 
-const ViewUser = ({ data }) => {
+const ViewUser = ({ user }) => {
 
-    if (!data) {
+    if (!user) {
         return (
             <div className="flex flex-col items-center justify-center bg-white px-6 py-12 text-center">
                 <MdPersonOff className="mb-3 text-5xl text-gray-300" />
@@ -30,35 +30,35 @@ const ViewUser = ({ data }) => {
     const details = [
         {
             label: "Full Name",
-            value: data.name,
+            value: user.name,
             icon: MdPerson,
             iconColor: "text-blue-600",
             iconBg: "bg-blue-50",
         },
         {
             label: "Username",
-            value: data.userName ? `@${data.userName}` : "",
+            value: user.userName ? `@${user.userName}` : "",
             icon: MdAlternateEmail,
             iconColor: "text-violet-600",
             iconBg: "bg-violet-50",
         },
         {
             label: "Email Address",
-            value: data.email,
+            value: user.email,
             icon: MdEmail,
             iconColor: "text-rose-600",
             iconBg: "bg-rose-50",
         },
         {
             label: "Mobile Number",
-            value: data.mobile,
+            value: user.mobile,
             icon: MdPhone,
             iconColor: "text-emerald-600",
             iconBg: "bg-emerald-50",
         },
         {
             label: "Role",
-            value: data.role,
+            value: user.role,
             icon: MdAdminPanelSettings,
             iconColor: "text-indigo-600",
             iconBg: "bg-indigo-50",
@@ -66,14 +66,14 @@ const ViewUser = ({ data }) => {
         },
         {
             label: "Date of Birth",
-            value: formatDate(data?.dateOfBirth),
+            value: formatDate(user?.dateOfBirth),
             icon: MdCake,
             iconColor: "text-pink-600",
             iconBg: "bg-pink-50",
         },
         {
             label: "Address",
-            value: data.address,
+            value: user.address,
             icon: MdLocationOn,
             iconColor: "text-orange-600",
             iconBg: "bg-orange-50",
@@ -81,14 +81,14 @@ const ViewUser = ({ data }) => {
         },
         {
             label: "Account Created",
-            value: formatDate(data.createdAt),
+            value: formatDate(user.createdAt),
             icon: MdCalendarMonth,
             iconColor: "text-teal-600",
             iconBg: "bg-teal-50",
         },
         {
             label: "Last Updated",
-            value: formatDate(data.updatedAt),
+            value: formatDate(user.updatedAt),
             icon: MdUpdate,
             iconColor: "text-amber-600",
             iconBg: "bg-amber-50",
@@ -105,8 +105,8 @@ const ViewUser = ({ data }) => {
                     <div className="relative shrink-0">
                         <div className="rounded-lg border-4 border-white shadow-md">
                             <Image
-                                src={data.profileImage}
-                                alt={data.name || "User"}
+                                src={user.profileImage}
+                                alt={user.name || "User"}
                                 className="h-24 w-24 object-cover rounded-lg sm:h-28 sm:w-28 "
                             />
                         </div>
@@ -114,31 +114,31 @@ const ViewUser = ({ data }) => {
 
                     <div className="min-w-0 flex-1 text-center sm:text-left">
                         <h3 className="wrap-break-word text-xl font-bold text-gray-900 sm:text-2xl">
-                            {data.name || "Unnamed User"}
+                            {user.name || "Unnamed User"}
                         </h3>
                         <h3 className="wrap-break-word text-sm font-semibold text-gray-600">
-                            {data.email || "Unnamed User"}
+                            {user.email || "Unnamed User"}
                         </h3>
 
                         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
                             <Badge
-                                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${data.isActive
+                                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${user.isActive
                                     ? "bg-emerald-100 text-emerald-700"
                                     : "bg-red-100 text-red-700"
                                     }`}
                             >
-                                {data.isActive ? (
+                                {user.isActive ? (
                                     <MdVerifiedUser className="text-base" />
                                 ) : (
                                     <MdPersonOff className="text-base" />
                                 )}
-                                {data.isActive ? "Active" : "Inactive"}
+                                {user.isActive ? "Active" : "Inactive"}
                             </Badge>
 
                             <Badge
                                 className="inline-flex items-center gap-1.5 rounded-full bg-indigo-100 px-3 py-1.5 text-xs font-semibold capitalize text-indigo-700" >
                                 <MdAdminPanelSettings className="text-base" />
-                                {data.role || "User"}
+                                {user.role || "User"}
                             </Badge>
                         </div>
                     </div>

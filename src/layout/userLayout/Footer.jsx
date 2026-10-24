@@ -40,7 +40,7 @@ const Footer = () => {
     <footer className="border-t border-green-100 bg-white">
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 lg:grid-cols-4">
 
           {/* Brand */}
           <div className="lg:col-span-2">

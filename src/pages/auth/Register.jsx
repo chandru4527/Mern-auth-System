@@ -96,7 +96,7 @@ const Register = () => {
   return (
 
     <main className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-4 sm:px-6">
-      <div className="animate-auth-card grid w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg lg:grid-cols-[42%_58%]">
+      <div className="animate-auth-card grid w-full max-w-5xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg lg:grid-cols-[42%_58%]">
 
 
         {/* Left Side */}
