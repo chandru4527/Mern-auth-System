@@ -8,9 +8,16 @@ export default defineConfig(({ mode }) => ({
     port: 2705,
   },
   build: {
-    minify: "esbuild",
-    esbuild: {
-      pure: mode === "production" ? ["console.log", "console.debug"] : [],
+    minify: "oxc",
+    rolldownOptions: {
+      output: {
+        minify: {
+          compress: {
+            dropConsole: mode === "production",
+            dropDebugger: mode === "production",
+          },
+        },
+      },
     },
   },
 }));
