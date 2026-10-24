@@ -14,10 +14,10 @@ import AdminRoute from './AdminRoute';
 import PublicRoute from "./PublicRoute";
 
 // pages
-import Home from "../pages/Home.jsx";
-import About from "../pages/About.jsx";
-import Features from "../pages/Features.jsx";
-import Profile from "../pages/Profile.jsx";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Features from "../pages/Features";
+import Profile from '../pages/Profile';
 
 // admin pages
 import Dashboard from '../pages/admin/Dashboard';

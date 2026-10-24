@@ -2,7 +2,7 @@ import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import Routers from "./routes/routes.jsx";
+import Routers from "./routes/routes";
 import Modal from "./components/Modal";
 
 const App = () => {
