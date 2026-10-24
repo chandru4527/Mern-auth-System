@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 
 // Icons
-import {
-  MdArrowForward,
-  MdHome,
-  MdSearchOff,
-  MdSecurity,
-} from "react-icons/md";
+import { MdHome, MdSearchOff, MdSecurity,} from "react-icons/md";
 
 // Components
 import Button from "../Button";
