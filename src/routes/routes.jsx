@@ -15,9 +15,9 @@ import PublicRoute from "./PublicRoute";
 
 // pages
 import Home from "../pages/Home.jsx";
-import About from "../pages/About";
-import Features from "../pages/Features";
-import Profile from '../pages/Profile';
+import About from "../pages/About.jsx";
+import Features from "../pages/Features.jsx";
+import Profile from "../pages/Profile.jsx";
 
 // admin pages
 import Dashboard from '../pages/admin/Dashboard';
