@@ -37,7 +37,7 @@ const Profile = () => {
     const { data: user, isLoading } = useCurrentUser();
     const { mutate: logout, isPending: isLoggingOut } = useLogout();
 
-    console.log(user);
+    // console.log(user);
 
     // edit profile
     const handleEditProfile = () => {

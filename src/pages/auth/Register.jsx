@@ -63,9 +63,6 @@ const Register = () => {
 
       const firebaseToken = await result?.user?.getIdToken();
 
-      console.log("Firebase Token:", firebaseToken);
-      console.log("Firebase Token:", result?.user);
-
       googleLogin(firebaseToken, {
         onSuccess: (res) => {
           toastify.success(
